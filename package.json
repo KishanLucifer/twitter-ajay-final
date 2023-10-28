@@ -1,0 +1,39 @@
+{
+  "name": "twitter-ajay-varsur-final",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@sanity/client": "^6.7.0",
+    "concurrently": "^8.2.2",
+    "next": "13.5.6",
+    "next-auth": "^4.24.3",
+    "next-sanity": "^5.5.8",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-hot-toast": "^2.4.1",
+    "react-social-media-embed": "^2.3.6",
+    "react-timeago": "^7.2.0",
+    "react-twitter-embed": "^4.0.4",
+    "styled-components": "^5.3.11",
+    "tailwind-scrollbar-hide": "^1.1.7"
+  },
+  "devDependencies": {
+    "@heroicons/react": "^1.0.6",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@types/react-timeago": "^4.1.5",
+    "autoprefixer": "^10",
+    "eslint": "^8",
+    "eslint-config-next": "13.5.6",
+    "postcss": "^8",
+    "tailwindcss": "^3.3.5",
+    "typescript": "^5"
+  }
+}
