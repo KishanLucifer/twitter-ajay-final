@@ -1,43 +1,22 @@
-// import { Tweet } from "../typings";
+import { Tweet } from "../typings";
 
-// export const fetchTweets = async () => {
-//   try {
-//     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/getTweets`,{cache: 'no-store'}
-//     );
-    
-    
-    
-//     if (!res.ok) {
-//       throw new Error(`Failed to fetch tweets: HTTP status ${res.status}`);
-//     }
-
-//     const data = await res.json();
-//     const tweets: Tweet[] = data.tweets;
-//     return tweets;
-//   } catch (error) {
-//     console.error("Error fetching tweets:", error);
-//     return []; // or handle the error in a way that makes sense for your application
-//   }
-// };
-
-// utils/api.ts
-import { Tweet } from "@/typings";
-
-// Function to fetch tweets from the API
-export const fetchTweets = async (): Promise<Tweet[]> => {
-  const apiUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/api/getTweets`;
+export const fetchTweets = async () => {
   try {
-    const response = await fetch(apiUrl, { cache: 'no-store' });
-
-    if (!response.ok) {
-      throw new Error(`Failed to fetch tweets: HTTP status ${response.status}`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/getTweets`,{cache: 'no-store'}
+    );
+    
+    
+    
+    if (!res.ok) {
+      throw new Error(`Failed to fetch tweets: HTTP status ${res.status}`);
     }
 
-    const data = await response.json();
-    return data.tweets;
+    const data = await res.json();
+    const tweets: Tweet[] = data.tweets;
+    return tweets;
   } catch (error) {
     console.error("Error fetching tweets:", error);
-    throw error; // Re-throw the error to handle it at the component level if needed
+    return []; // or handle the error in a way that makes sense for your application
   }
 };
 
