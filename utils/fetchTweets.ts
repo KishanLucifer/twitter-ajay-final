@@ -2,7 +2,10 @@ import { Tweet } from "../typings";
 
 export const fetchTweets = async () => {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/getTweets`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/getTweets`,{cache: 'no-store'}
+    );
+    
+    
     
     if (!res.ok) {
       throw new Error(`Failed to fetch tweets: HTTP status ${res.status}`);
