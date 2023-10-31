@@ -10,7 +10,6 @@
 // };
 
 import { Tweet } from "../typings";
-import { revalidatePath } from 'next/cache'
 
 
 export const fetchTweets = async () => {
@@ -22,7 +21,6 @@ export const fetchTweets = async () => {
     }
 
     const data = await res.json();
-    revalidatePath(`${process.env.NEXT_PUBLIC_BASE_URL}/api/getTweets`)
 
     
     const tweets: Tweet[] = data.tweets;
