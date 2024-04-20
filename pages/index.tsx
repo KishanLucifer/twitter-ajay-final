@@ -2,11 +2,10 @@ import Head from 'next/head';
 import Sidebar from '@/components/Sidebar';
 import Feed from '@/components/Feed';
 import Widgets from '@/components/Widgets';
-// import type { GetServerSideProps } from "next";
+import type { GetServerSideProps } from 'next';
 import { Tweet } from '@/typings';
 import { fetchTweets } from '@/utils/fetchTweets';
 import { Toaster } from 'react-hot-toast';
-import type { InferGetServerSidePropsType, GetServerSideProps } from 'next';
 
 interface Props {
   tweets: Tweet[];
@@ -31,7 +30,7 @@ const Home = ({ tweets }: Props) => {
 
 export default Home;
 
-export const getServerSideProps: GetServerSideProps = async (_context) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const tweets = await fetchTweets();
   return {
     props: {

@@ -1,21 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { Comment, CommentBody, Tweet as TweetType } from "../typings";
-import TimeAgo from "react-timeago";
+import React, { useEffect, useState } from 'react';
+import { Comment, CommentBody, Tweet as TweetType } from '../typings';
+import TimeAgo from 'react-timeago';
 import {
   ChatAlt2Icon,
   HeartIcon,
   SwitchHorizontalIcon,
   UploadIcon,
-} from "@heroicons/react/outline";
-import { fetchComments } from "../utils/fetchComments";
-import toast from "react-hot-toast";
-import { useSession } from "next-auth/react";
-import Ajay from "./ajay.jpg";
+} from '@heroicons/react/outline';
+import { fetchComments } from '../utils/fetchComments';
+import toast from 'react-hot-toast';
+import { useSession } from 'next-auth/react';
+import Ajay from './ajay.jpg';
 import { useCallback } from 'react';
 // import Image from "next/image";
-
-
-
 
 interface Props {
   tweet: TweetType;
@@ -23,7 +20,7 @@ interface Props {
 
 function TweetComponent({ tweet }: Props) {
   const [commentBoxVisible, setCommentBoxVisible] = useState<boolean>(false);
-  const [input, setInput] = useState<string>("");
+  const [input, setInput] = useState<string>('');
   const [comments, setComments] = useState<Comment[]>([]);
 
   const { data: session } = useSession();
@@ -39,33 +36,30 @@ function TweetComponent({ tweet }: Props) {
 
   // console.log(comments);
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>): Promise<void> {
+  async function handleSubmit(
+    e: React.FormEvent<HTMLFormElement>
+  ): Promise<void> {
     e.preventDefault();
-
-
-
 
     // Comment logic
     const comment: CommentBody = {
       comment: input,
       tweetId: tweet._id,
-      username: session?.user?.name || "Unknown User",
-      profileImg: session?.user?.image || "Ajay.src",
+      username: session?.user?.name || 'Unknown User',
+      profileImg: session?.user?.image || 'Ajay.src',
     };
 
     await fetch(`/api/addComment`, {
       body: JSON.stringify(comment),
-      method: "POST",
+      method: 'POST',
     });
 
     // console.log("WOOHOO we made it", result);
-    toast.success("Comment Posted!", {
+    toast.success('Comment Posted!', {
       // id: comments,
     });
 
-
-
-    setInput("");
+    setInput('');
     setCommentBoxVisible(false);
     refreshComments();
   }
@@ -85,7 +79,7 @@ function TweetComponent({ tweet }: Props) {
           <div className="flex items-centre space-x-1">
             <p className="mr-1 font-bold">{tweet.username}</p>
             <p className="hidden text-sm text-gray-500 sm:inline">
-              @{tweet.username.replace(/\s+/g, "").toLowerCase()} ·
+              @{tweet.username.replace(/\s+/g, '').toLowerCase()} ·
             </p>
 
             <TimeAgo
@@ -158,7 +152,7 @@ function TweetComponent({ tweet }: Props) {
                 <div className="flex items-centre space-x-1">
                   <p className="mr-1 font-bold">{comment.username}</p>
                   <p className="hidden text-sm text-gray-500 lg:inline">
-                    @{comment.username.replace(/\s+/g, "").toLowerCase()} ·
+                    @{comment.username.replace(/\s+/g, '').toLowerCase()} ·
                   </p>
 
                   <TimeAgo
