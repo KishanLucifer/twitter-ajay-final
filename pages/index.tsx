@@ -7,6 +7,8 @@ import { Tweet } from '@/typings';
 import { fetchTweets } from '@/utils/fetchTweets';
 import { Toaster } from 'react-hot-toast';
 
+export const dynamic = 'force-dynamic';
+
 interface Props {
   tweets: Tweet[];
 }
