@@ -48,12 +48,12 @@ function Sidebar() {
       <div className=" w-full mt-9 justify-end mx-5 hidden md:flex">
         <div className="item p-3 items-center gap-5 justify-end mx-5 flex hover:bg-gray-800 cursor-pointer rounded-full w-fit">
           <div className="p1">
-            <div className="button w-full text-center my-4">
+            {/* <div className="button w-full text-center my-4">
               <button className="hidden md:block bg-[#1d9bf0] px-20 text-xl rounded-full py-3 text-white">
                 Post
               </button>
-            </div>
-            <img
+            </div> */}
+            {/* <img
               className="mt-4 h-10 w-10 rounded-full object-cover"
               src={session?.user?.image || Ajay.src}
               alt="User Profile Image"
@@ -61,10 +61,10 @@ function Sidebar() {
 
             <div className="text-gray-500 p2">
               @{comment.username.replace(/\s+/g, '').toLowerCase()}{' '}
-            </div>
+            </div> */}
           </div>
         </div>
-        <div className="p3 text-2xl">...</div>
+        {/* <div className="p3 text-2xl">...</div> */}
       </div>
     </div>
   );
