@@ -22,7 +22,7 @@ interface Props {
 function Sidebar() {
   const { data: session } = useSession();
   const comment: CommentBody = {
-    username: session?.user?.name || 'Unknown User',
+    username: session?.user?.name || 'Ajay Kishan',
     profileImg: session?.user?.image || 'Ajay.src',
     comment: '',
     tweetId: '',
@@ -50,7 +50,7 @@ function Sidebar() {
           Post
         </button>
 
-        <div className="flex items-start max-w-fit cursor-pointer space-x-2 rounded-full px-16 py-3 my-6 transition-all duration-200 bg-gray-900">
+        <div className="flex items-start max-w-fit cursor-pointer space-x-2 rounded-full px-3 py-3 my-12 transition-all duration-200 bg-gray-900">
           <img
             className="h-12 w-12 rounded-full object-cover"
             src={session?.user?.image || Ajay.src}
