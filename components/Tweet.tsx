@@ -73,7 +73,7 @@ function TweetComponent({ tweet }: Props) {
     <>
       <div
         key={tweet._id}
-        className="flex flex-col space-x-3 p-5 border-y border-gray-700"
+        className="flex flex-col space-x-3 p-5 border-y border-gray-900"
       >
         <div className="flex space-x-3">
           <img
