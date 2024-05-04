@@ -30,7 +30,7 @@ function Sidebar() {
 
   return (
     <>
-      <div className="col-span-2 flex flex-col items-center px-4 md:items-start">
+      <div className="col-span-2 flex flex-col items-center px-0 md:items-start">
         <img className="m-3 h-10 w-10" src={Logo.src} alt="" />
         <SidebarRow Icon={HomeIcon} title="Home" />
         <SidebarRow Icon={HashtagIcon} title="Explore" />
@@ -50,20 +50,20 @@ function Sidebar() {
           Post
         </button>
 
-        <div className="item p-3 items-center gap-5 justify-end flex hover:bg-gray-800 cursor-pointer rounded-full w-fit">
+        <div className="flex items-start max-w-fit cursor-pointer space-x-2 rounded-full px-16 py-3 my-6 transition-all duration-200 bg-gray-900">
           <img
-            className="mt-4 h-12 w-12 rounded-full object-cover"
+            className="h-12 w-12 rounded-full object-cover"
             src={session?.user?.image || Ajay.src}
             alt="User Profile Image"
           />
 
-          <div className=" p2">
+          <div className="">
             <div>{comment.username}</div>
             <div className="text-gray-500">
               @{comment.username.replace(/\s+/g, '').toLowerCase()}{' '}
             </div>
           </div>
-          <div className="p3 text-2xl">...</div>
+          <div className="text-2xl">...</div>
         </div>
       </div>
     </>
