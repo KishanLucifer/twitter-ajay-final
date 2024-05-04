@@ -1,26 +1,25 @@
-import React, { Dispatch, SetStateAction, useRef, useState } from "react";
-import Ajay from "./ajay.jpg";
+import React, { Dispatch, SetStateAction, useRef, useState } from 'react';
+import Ajay from './ajay.jpg';
 import {
   CalendarIcon,
   EmojiHappyIcon,
   LocationMarkerIcon,
   PhotographIcon,
   SearchIcon,
-} from "@heroicons/react/outline";
-import { useSession } from "next-auth/react";
-import { Tweet, TweetBody } from "../typings";
-import { fetchTweets } from "../utils/fetchTweets";
-import toast from "react-hot-toast";
+} from '@heroicons/react/outline';
+import { useSession } from 'next-auth/react';
+import { Tweet, TweetBody } from '../typings';
+import { fetchTweets } from '../utils/fetchTweets';
+import toast from 'react-hot-toast';
 // import Image from "next/image";
-
 
 interface Props {
   setTweets: Dispatch<SetStateAction<Tweet[]>>;
 }
 
 function TweetBox({ setTweets }: Props) {
-  const [input, setInput] = useState<string>("");
-  const [image, setImage] = useState<string>("");
+  const [input, setInput] = useState<string>('');
+  const [image, setImage] = useState<string>('');
   const imageInputRef = useRef<HTMLInputElement>(null);
   const { data: session } = useSession();
   const [imageUrlBoxIsOpen, setImageUrlBoxIsOpen] = useState<boolean>(false);
@@ -28,26 +27,24 @@ function TweetBox({ setTweets }: Props) {
   const addImageToTweet = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
-    e.preventDefault()
+    e.preventDefault();
 
     if (!imageInputRef.current?.value) return;
     setImage(imageInputRef.current.value);
-    imageInputRef.current.value = "";
+    imageInputRef.current.value = '';
     setImageUrlBoxIsOpen(false);
   };
-
 
   const postTweet = async () => {
     const tweetInfo: TweetBody = {
       text: input,
-      username: session?.user?.name || "Unknown User",
+      username: session?.user?.name || 'Unknown User',
       profileImg: session?.user?.image || Ajay.src,
       image: image,
     };
     const result = await fetch(`/api/addTweet`, {
       body: JSON.stringify(tweetInfo),
-      method: "POST",
-
+      method: 'POST',
     });
 
     const json = await result.json();
@@ -55,22 +52,23 @@ function TweetBox({ setTweets }: Props) {
     const newTweets = await fetchTweets();
     setTweets(newTweets);
 
-    toast("Tweet Posted", {
-      icon: "🚀🚀🚀.......!",
+    toast('Tweet Posted', {
+      icon: '🚀🚀🚀.......!',
+      duration: 3000,
+      position: 'top-center',
     });
 
     return json;
   };
 
   const handleSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    e.preventDefault()
+    e.preventDefault();
 
     postTweet();
-    setInput("");
-    setImage("");
+    setInput('');
+    setImage('');
     setImageUrlBoxIsOpen(false);
   };
-
 
   return (
     <div className="flex space-x-2 p-3 ">

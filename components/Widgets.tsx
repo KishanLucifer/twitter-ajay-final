@@ -1,6 +1,6 @@
-import { SearchIcon } from "@heroicons/react/outline";
-import { TwitterTimelineEmbed } from "react-twitter-embed";
-import React from "react";
+import { SearchIcon } from '@heroicons/react/outline';
+import { TwitterTimelineEmbed } from 'react-twitter-embed';
+import React from 'react';
 
 function Widgets() {
   return (
@@ -17,18 +17,13 @@ function Widgets() {
         <div className="my-3 space-x-3 rounded-full bg-gray-50">
           <TwitterTimelineEmbed
             sourceType="profile"
-            screenName="ajay_varsur"
+            screenName="elonmusk"
             options={{ height: 500 }}
           />
         </div>
-
       </div>
     </>
   );
 }
 
 export default Widgets;
-
-
-
-

@@ -9,7 +9,7 @@
   @apply h-full bg-black
 } */
 
- :root {
+:root {
   --max-width: 1100px;
   --border-radius: 12px;
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
@@ -117,3 +117,18 @@ a {
   }
 }
 
+/* Custom styles for Toast notifications */
+/* .Toastify__toast-container {
+  width: 100%;
+  z-index: 9999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.Toastify__toast {
+  font-size: 14px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 8px;
+} */

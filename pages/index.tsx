@@ -7,8 +7,6 @@ import { Tweet } from '@/typings';
 import { fetchTweets } from '@/utils/fetchTweets';
 import { Toaster } from 'react-hot-toast';
 
-export const dynamic = 'force-dynamic';
-
 interface Props {
   tweets: Tweet[];
 }
@@ -21,7 +19,7 @@ const Home = ({ tweets }: Props) => {
         <title>Twitter</title>
       </Head>
       <Toaster />
-      <main className="grid grid-cols-9">
+      <main className="grid grid-cols-9 divide-x divide-gray-700">
         <Sidebar />
         <Feed tweets={tweets} />
         <Widgets />
