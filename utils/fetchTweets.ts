@@ -20,7 +20,7 @@ export const fetchTweets = async () => {
     const response = await fetch(
       ` ${process.env.NEXT_PUBLIC_BASE_URL}/api/getTweets `,
       {
-        method: "GET",
+        method: "PUT",
         headers: {
           "Cache-Control": "no-cache", // Force fetching new data
         },
